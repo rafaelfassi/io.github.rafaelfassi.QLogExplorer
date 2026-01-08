@@ -1,6 +1,6 @@
 app-id: io.github.rafaelfassi.QLogExplorer
 runtime: org.kde.Platform
-runtime-version: '5.15-21.08'
+runtime-version: '5.15-25.08'
 sdk: org.kde.Sdk
 rename-appdata-file: qlogexplorer.appdata.xml
 rename-desktop-file: qlogexplorer.desktop
@@ -24,9 +24,17 @@ finish-args:
 modules:
   - name: qlogexplorer
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     post-install:
-      - cp -r packaging/linux/xdg ${FLATPAK_DEST}/share
+      - install -D -m644 packaging/linux/xdg/applications/qlogexplorer.desktop /app/share/applications/qlogexplorer.desktop
+      - install -D -m644 packaging/linux/xdg/metainfo/qlogexplorer.appdata.xml /app/share/metainfo/qlogexplorer.appdata.xml
+      - install -D -m644 packaging/linux/xdg/icons/hicolor/scalable/apps/qlogexplorer.svg /app/share/icons/hicolor/scalable/apps/qlogexplorer.svg
     sources:
       - type: archive
         url: https://github.com/rafaelfassi/qlogexplorer/archive/refs/tags/v1.0.2.tar.gz
         sha256: 23c4b019ffe8770e208d77d8dd258f230cbf8a4f12477523993c9172dbb330d2
+      - type: patch
+        paths:
+          - fix-rapidjson-build-error.patch
+          - fix-appdata.patch
