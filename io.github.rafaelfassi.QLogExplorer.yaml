@@ -1,6 +1,6 @@
 app-id: io.github.rafaelfassi.QLogExplorer
 runtime: org.kde.Platform
-runtime-version: '5.15-25.08'
+runtime-version: '6.4'
 sdk: org.kde.Sdk
 rename-appdata-file: qlogexplorer.appdata.xml
 rename-desktop-file: qlogexplorer.desktop
@@ -30,11 +30,13 @@ modules:
       - install -D -m644 packaging/linux/xdg/applications/qlogexplorer.desktop /app/share/applications/qlogexplorer.desktop
       - install -D -m644 packaging/linux/xdg/metainfo/qlogexplorer.appdata.xml /app/share/metainfo/qlogexplorer.appdata.xml
       - install -D -m644 packaging/linux/xdg/icons/hicolor/scalable/apps/qlogexplorer.svg /app/share/icons/hicolor/scalable/apps/qlogexplorer.svg
+      - install -D -m644 packaging/linux/xdg/icons/hicolor/16x16/apps/qlogexplorer.png /app/share/icons/hicolor/16x16/apps/qlogexplorer.png
+      - install -D -m644 packaging/linux/xdg/icons/hicolor/24x24/apps/qlogexplorer.png /app/share/icons/hicolor/24x24/apps/qlogexplorer.png
+      - install -D -m644 packaging/linux/xdg/icons/hicolor/32x32/apps/qlogexplorer.png /app/share/icons/hicolor/32x32/apps/qlogexplorer.png
+      - install -D -m644 packaging/linux/xdg/icons/hicolor/64x64/apps/qlogexplorer.png /app/share/icons/hicolor/64x64/apps/qlogexplorer.png
+      - install -D -m644 packaging/linux/xdg/icons/hicolor/128x128/apps/qlogexplorer.png /app/share/icons/hicolor/128x128/apps/qlogexplorer.png
+      - install -D -m644 packaging/linux/xdg/icons/hicolor/256x256/apps/qlogexplorer.png /app/share/icons/hicolor/256x256/apps/qlogexplorer.png
     sources:
       - type: archive
-        url: https://github.com/rafaelfassi/qlogexplorer/archive/refs/tags/v1.0.2.tar.gz
-        sha256: 23c4b019ffe8770e208d77d8dd258f230cbf8a4f12477523993c9172dbb330d2
-      - type: patch
-        paths:
-          - fix-rapidjson-build-error.patch
-          - fix-appdata.patch
+        url: https://github.com/rafaelfassi/qlogexplorer/archive/refs/tags/v1.1.0.tar.gz
+        sha256: ff7e967544bdd2378f11f390148b52b4f2aab6dd405f5b2ffa08ef9af6be6503
