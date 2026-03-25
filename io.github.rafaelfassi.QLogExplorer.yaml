@@ -28,11 +28,6 @@ modules:
       - install -D -m644 packaging/linux/xdg/applications/qlogexplorer.desktop /app/share/applications/qlogexplorer.desktop
       - install -D -m644 packaging/linux/xdg/metainfo/qlogexplorer.appdata.xml /app/share/metainfo/qlogexplorer.appdata.xml
       - install -D -m644 packaging/linux/xdg/icons/hicolor/scalable/apps/qlogexplorer.svg /app/share/icons/hicolor/scalable/apps/qlogexplorer.svg
-      - install -D -m644 packaging/linux/xdg/icons/hicolor/16x16/apps/qlogexplorer.png /app/share/icons/hicolor/16x16/apps/qlogexplorer.png
-      - install -D -m644 packaging/linux/xdg/icons/hicolor/24x24/apps/qlogexplorer.png /app/share/icons/hicolor/24x24/apps/qlogexplorer.png
-      - install -D -m644 packaging/linux/xdg/icons/hicolor/32x32/apps/qlogexplorer.png /app/share/icons/hicolor/32x32/apps/qlogexplorer.png
-      - install -D -m644 packaging/linux/xdg/icons/hicolor/64x64/apps/qlogexplorer.png /app/share/icons/hicolor/64x64/apps/qlogexplorer.png
-      - install -D -m644 packaging/linux/xdg/icons/hicolor/128x128/apps/qlogexplorer.png /app/share/icons/hicolor/128x128/apps/qlogexplorer.png
       - install -D -m644 packaging/linux/xdg/icons/hicolor/256x256/apps/qlogexplorer.png /app/share/icons/hicolor/256x256/apps/qlogexplorer.png
     sources:
       - type: archive
