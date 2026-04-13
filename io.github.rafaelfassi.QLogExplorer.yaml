@@ -30,6 +30,24 @@ modules:
       - install -D -m644 packaging/linux/xdg/icons/hicolor/scalable/apps/qlogexplorer.svg /app/share/icons/hicolor/scalable/apps/qlogexplorer.svg
       - install -D -m644 packaging/linux/xdg/icons/hicolor/256x256/apps/qlogexplorer.png /app/share/icons/hicolor/256x256/apps/qlogexplorer.png
     sources:
-      - type: archive
-        url: https://github.com/rafaelfassi/qlogexplorer/archive/refs/tags/v1.1.3.tar.gz
-        sha256: 19fa25a24f0e0a21f850802eb8bfcb59405ba6e3a345ef1039f27735e81912fa
+      # Abseil (required by RE2)
+      - type: git
+        url: https://github.com/abseil/abseil-cpp.git
+        tag: 20250814.2
+        commit: 0cf0a5c9d12cc3783363ab20f11613e69fd04c9a
+        dest: abseil
+      # RE2 (required by qlogexplorer)
+      - type: git
+        url: https://github.com/google/re2.git
+        tag: 2025-11-05
+        commit: 927f5d53caf8111721e734cf24724686bb745f55
+        dest: re2
+      # qlogexplorer
+      - type: git
+        url: https://github.com/rafaelfassi/qlogexplorer.git
+        tag: v1.2.1
+        commit: f1c2ee38057c867efb85eddc276866fa7a3d251f
+    config-opts:
+      - -DFETCHCONTENT_SOURCE_DIR_ABSEIL=/run/build/qlogexplorer/abseil
+      - -DFETCHCONTENT_SOURCE_DIR_RE2=/run/build/qlogexplorer/re2
+      - -DDISABLE_TESTS=ON
