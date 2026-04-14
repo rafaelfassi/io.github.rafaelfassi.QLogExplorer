@@ -13,14 +13,8 @@ finish-args:
   # Necessary if X11 fallback takes place.
   - --socket=fallback-x11
   - --share=ipc
-  # Necessary to open user log files.
-  - --filesystem=home
-  # Necessary to open system log files.
-  - --filesystem=/var/log
-  # Local sockets are used to detect other running instance and forward any open file request to it.
-  # Qt requires Network module to use sockets. Even though an error message is print on app startup
-  # when no network permission is granted, it's working properly.
-  # - --share=network
+  # Necessary to open log files.
+  - --filesystem=host:ro
 modules:
   - name: qlogexplorer
     buildsystem: cmake-ninja
@@ -36,13 +30,13 @@ modules:
         tag: 20250814.2
         commit: 0cf0a5c9d12cc3783363ab20f11613e69fd04c9a
         dest: abseil
-      # RE2 (required by qlogexplorer)
+      # RE2 (required by QLogExplorer)
       - type: git
         url: https://github.com/google/re2.git
         tag: 2025-11-05
         commit: 927f5d53caf8111721e734cf24724686bb745f55
         dest: re2
-      # qlogexplorer
+      # QLogExplorer
       - type: git
         url: https://github.com/rafaelfassi/qlogexplorer.git
         tag: v1.2.1
